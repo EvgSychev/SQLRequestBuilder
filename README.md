@@ -30,7 +30,7 @@ ORDER BY Name ASC
 ```bsl
 SQLRequestBuilder = DataProcessorManager.SQLRequestBuilder.Create();
 SQLRequestText = SQLRequestBuilder.Select("Name, ProductNumber")
-	.Field("ListPrice","Price");//такая форма записи поля используется для задания псевдонима и если в тексте поля используются запятые
+	.Field("ListPrice","Price")//такая форма записи поля используется для задания псевдонима и если в тексте поля используются запятые
 .From("Production.Product")
 .Where("ProductLine = 'R'")
 	.Condition("DaysToManufacture < 4")//ещё одно условие
