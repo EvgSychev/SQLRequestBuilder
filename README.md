@@ -36,3 +36,27 @@ SQLRequestText = SQLRequestBuilder.Select("Name, ProductNumber")
 	.Condition("DaysToManufacture < 4")//ещё одно условие
 .OrderBy("Name ASC").RequestText();
 ```
+Пример с select into:
+
+```sql
+IF OBJECT_ID (N'#Bicycles',N'U') IS NOT NULL
+DROP TABLE #Bicycles
+SELECT * 
+INTO #Bicycles
+FROM AdventureWorks2012.Production.Product
+WHERE ProductNumber LIKE 'BK%'
+```
+
+1C Enterpise:
+```bsl
+SQLRequestBuilder = DataProcessorManager.SQLRequestBuilder.Create();
+SQLRequestText = SQLRequestBuilder
+._If("OBJECT_ID (N'#Bicycles',N'U') IS NOT NULL")// слово if зарезервировано
+.Drop()
+.Table("#Bicycles")
+.Select("*")
+.Into("#Bicycles")
+.From("AdventureWorks2012.Production.Product")
+.Where("ProductNumber LIKE 'BK%'")
+.RequestText();
+```
