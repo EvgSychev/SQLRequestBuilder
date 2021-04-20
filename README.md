@@ -14,5 +14,5 @@ ORDER BY LastName
 
 ```1C Enterpise
 SQLRequestBuilder = DataProcessorManager.SQLRequestBuilder.Create();
-SQLRequestText = SQLRequestBuilder.Select("*").From("DimEmployee").OrderBy("LastName").ТекстЗапроса();
+SQLRequestText = SQLRequestBuilder.Select("*").From("DimEmployee").OrderBy("LastName").RequestText();
 ```
